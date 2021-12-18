@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "ExampleApp"
-#define MyAppVersion "0.4.0-alpha3"
+#define MyAppVersion "1.0.0"
 #define MyAppPublisher "Marcus Behel"
 #define MyAppURL ""
 #define MyAppExeName "ExampleApp.exe"
@@ -10,7 +10,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={FD7B0398-312C-425D-9C5A-08351334B8CA}
+AppId={{FD7B0398-312C-425D-9C5A-08351334B8CA}
 ArchitecturesAllowed=x64
 ArchitecturesInstallIn64BitMode=x64
 AppName={#MyAppName}
