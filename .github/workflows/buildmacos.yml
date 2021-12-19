@@ -1,4 +1,4 @@
-name: Build Windows
+name: Build MacOS
 on: [workflow_dispatch]
 jobs:
   Build:
