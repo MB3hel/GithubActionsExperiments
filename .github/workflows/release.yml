@@ -1,5 +1,5 @@
 name: Build Releases
-on: [release]
+on: [workflow_dispatch]
 jobs:
   Build Linux:
     runs-on: ubuntu-18.04
