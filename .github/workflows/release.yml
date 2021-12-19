@@ -5,7 +5,12 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - run: sudo apt-get install python3-setuptools python3-wheel
-      - run: python3 -m pip install -r requirements.txt
-      - working-directory: ./packaging
-        run: ./linux_source.sh --tar yes --deb yes
+      - shell: bash
+        run: |
+          sudo apt-get install python3-setuptools python3-wheel
+          python3 -m venv env
+          source env/bin/activate
+          python --version
+          python -m pip install -r requirements.txt
+          cd ./packaging
+          ./linux_source.sh --tar yes --deb yes
