@@ -4,4 +4,7 @@ jobs:
   BuildLinux:
     runs-on: ubuntu-18.04
     steps:
-      - run: python3 --version
+      - uses: actions/checkout@v2
+      - run: ls
+      - run: cd packaging
+      - run: ls
