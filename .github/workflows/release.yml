@@ -8,8 +8,7 @@ jobs:
       - shell: bash
         run: |
           sudo apt-get install python3-setuptools python3-wheel
-          python3 -m venv env
-          source env/bin/activate
+          alias python=python3
           python --version
           python -m pip install -r requirements.txt
           cd ./packaging
