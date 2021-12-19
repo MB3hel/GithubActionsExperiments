@@ -12,16 +12,13 @@ jobs:
       - run: python3 -m pip install -r requirements.txt
       - working-directory: ./packaging
         run: ./linux_source.sh --tar yes --deb yes --python python3
-      - run: ls
-      - run: ls packaging
-      - run: ls packaging/dist
       - uses: actions/upload-artifact@v2
         with:
           name: Linux_x86_64_Tarball
-          path: ./packages/dist/ExampleApp*.deb
+          path: ./packaging/dist/ExampleApp*.deb
           retention-days: 1
       - uses: actions/upload-artifact@v2
         with:
           name: Linux_x86_64_Deb
-          path: ./packages/dist/exampleapp*.deb
+          path: ./packaging/dist/exampleapp*.deb
           retention-days: 1
