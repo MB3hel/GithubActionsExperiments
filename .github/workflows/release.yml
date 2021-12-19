@@ -14,11 +14,9 @@ jobs:
         run: ./linux_source.sh --tar yes --deb yes --python python3
       - uses: actions/upload-artifact@v2
         with:
-          name: Linux_x86_64_Tarball
-          path: ./packaging/dist/ExampleApp*.deb
+          path: ./packaging/dist/ExampleApp*.tar
           retention-days: 1
       - uses: actions/upload-artifact@v2
         with:
-          name: Linux_x86_64_Deb
           path: ./packaging/dist/exampleapp*.deb
           retention-days: 1
