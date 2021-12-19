@@ -26,6 +26,18 @@ function confirm() {
 # Setup
 ################################################################################
 
+BUILD_TAR="ask"
+BUILD_DEB="ask"
+
+while true; do
+  case "$1" in
+    --tar ) BUILD_TAR="$2"; shift 2 ;;
+    --deb ) BUILD_DEB="$2"; shift 2 ;;
+    -- ) shift; break ;;
+    * ) break ;;
+  esac
+done
+
 DIR=$(realpath $(dirname $0))
 pushd "$DIR" > /dev/null
 
@@ -64,7 +76,12 @@ sed -i "s/pyinstaller//g" ./dist/ExampleApp/requirements.txt
 ################################################################################
 # Tarball package
 ################################################################################
-if confirm "Create tar.gz package?"; then
+if [ "$BUILD_TAR" == "ask" ]; then
+    if confirm "Create tar.gz package?"; then
+        BUILD_TAR="yes"
+    fi
+fi
+if [ "$BUILD_TAR" == "yes" ]; then
     echo "**Creating tar.gz package**"
     pushd dist > /dev/null
     tar -zcvf ExampleApp-${VERSION}.tar.gz ./ExampleApp/ || fail
@@ -75,7 +92,12 @@ fi
 ################################################################################
 # Deb package
 ################################################################################
-if confirm "Create deb package?"; then
+if [ "$BUILD_DEB" == "ask" ]; then
+    if confirm "Create deb package?"; then
+        BUILD_DEB="yes"
+    fi
+fi
+if [ "$BUILD_DEB" == "yes" ]; then
     echo "**Creating deb package**"
 
     pushd dist > /dev/null
