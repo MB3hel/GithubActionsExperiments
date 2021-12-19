@@ -81,13 +81,13 @@ if confirm "Create deb package?"; then
     pushd dist > /dev/null
 
     # Setup folder structure
-    mkdir ExampleApp_$VERSION
-    mkdir ExampleApp_$VERSION/DEBIAN
-    mkdir ExampleApp_$VERSION/opt
-    mkdir ExampleApp_$VERSION/opt/ExampleApp
+    mkdir exampleapp_$VERSION
+    mkdir exampleapp_$VERSION/DEBIAN
+    mkdir exampleapp_$VERSION/opt
+    mkdir exampleapp_$VERSION/opt/ExampleApp
 
     # Copy files
-    cp -r ./ExampleApp/* ./ExampleApp_$VERSION/opt/ExampleApp/
+    cp -r ./ExampleApp/* ./exampleapp_$VERSION/opt/ExampleApp/
     cp ../linux_source/deb_control ./exampleapp_$VERSION/DEBIAN/control
     cp ../linux_source/deb_prerm ./exampleapp_$VERSION/DEBIAN/prerm
     cp ../linux_source/deb_postinst ./exampleapp_$VERSION/DEBIAN/postinst
