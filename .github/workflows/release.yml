@@ -5,11 +5,12 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - shell: bash
+      - name: Do all the things
+        shell: bash
         run: |
           sudo apt-get install python3-setuptools python3-wheel
           shopt -s expand_aliases
-          alias python=python3
+          alias python=python3    # build script expects "python" not "python3"
           python --version
           python -m pip install -r requirements.txt
           cd ./packaging

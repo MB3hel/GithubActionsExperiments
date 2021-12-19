@@ -9,7 +9,8 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 uic = ""
 rcc = ""
 
-
+import platform
+print(platform.python_version())
 
 # Find UIC and RCC
 if uic == "" and rcc == "":
