@@ -28,11 +28,13 @@ function confirm() {
 
 BUILD_TAR="ask"
 BUILD_DEB="ask"
+PYTHON="python"
 
 while true; do
   case "$1" in
     --tar ) BUILD_TAR="$2"; shift 2 ;;
     --deb ) BUILD_DEB="$2"; shift 2 ;;
+    --python ) PYTHON="$2"; shift 2 ;;
     -- ) shift; break ;;
     * ) break ;;
   esac
@@ -50,7 +52,7 @@ VERSION=`head -1 ../res/version.txt`
 ################################################################################
 echo "**Compiling QT Resources and UI**"
 pushd ../ > /dev/null
-python compile.py || fail
+$PYTHON compile.py || fail
 popd > /dev/null
 
 
