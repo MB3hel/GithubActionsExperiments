@@ -1,7 +1,7 @@
-name: Build Releases
+name: Build Linux
 on: [workflow_dispatch]
 jobs:
-  BuildLinux:
+  Build:
     # PySide6 won't work on Ubuntu 18.04 (glibc too old)
     # Therefore if using pyinstaller method instead of source method, 
     #     packages are compatible with fewer systems
